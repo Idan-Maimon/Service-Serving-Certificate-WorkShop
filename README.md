@@ -4,8 +4,8 @@
 This workshop demonstrates how to annotate a service in an OpenShift cluster with a Service Serving Certificate to enable secure communication over HTTPS between pods in Openshift
 
 ## Prerequisites
-- OpenShift CLI (oc) installed and configured
-- Access to an OpenShift cluster
+   - OpenShift CLI (oc) installed and configured
+   - Access to an OpenShift cluster
 
 ## During this workshop, you will perform the following steps:
 Step 1: Create new project
@@ -104,7 +104,7 @@ spec:
 oc apply -f curl-client.yaml
 ```
 3. Run curl command from client to server
-- Did the curl worked using the https endpoint ?
+   - Did the curl worked using the https endpoint ?
   
 
 ### Step 4: Annotate the HTTPS Server Service
@@ -120,8 +120,8 @@ oc apply -f curl-client.yaml
 
 1. Modify the http server to consume the secret
 The http server expect to get the crt and key as follow:
-- tls.crt: should be mounted at /app/fullchain.pem
-- tls.key: should be mounted at /app/privkey.pem
+   - tls.crt: should be mounted at /app/fullchain.pem
+   - tls.key: should be mounted at /app/privkey.pem
 
 2. Modify the curl client to use the ca certficate to turst the https server
 Use curl command and manully point the certificate and test https communication 
