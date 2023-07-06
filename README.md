@@ -17,8 +17,9 @@ Step 5: Adjust the server and client deployments to consume the certificates to 
 ### Step 1: Create a New Project
 1. Open a terminal or command prompt.
 2. Run the following command to create a new project:
-   ```bash
+```bash
    oc new-project https-server-project
+```
 
 ### Step 2: Deploy HTTP/HTTPS Simple Server
 1. Create a file named http-server.yaml and copy the following content into it:
@@ -68,15 +69,15 @@ spec:
     protocol: TCP
     port: 8443
     targetPort: 8443   
+```
 
 2. Run the following command to deploy the HTTP/HTTPS simple server:
 
 ```bash
 oc apply -f http-server.yaml
-
+```
 ### Step 3: Deploy the Curl Client
 1. Create a file named curl-client.yaml and copy the following content into it:
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -96,14 +97,15 @@ spec:
       - name: curl-container
         image: curlimages/curl
         command: ["sleep", "infinity"]
-
+```
 2. Run the following command to deploy the curl client:
 
 ```bash
 oc apply -f curl-client.yaml
-
+```
 3. Run curl command from client to server
 - Did the curl worked using the https endpoint ?
+  
 
 ###Step 4: Annotate the HTTPS Server Service
 
