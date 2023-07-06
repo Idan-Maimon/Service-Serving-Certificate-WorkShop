@@ -109,13 +109,14 @@ oc apply -f curl-client.yaml
 
 ### Step 4: Annotate the HTTPS Server Service
 
-1. Use the following article to annotate to create the internal
+1. Use the following article to annotate the service so the service-signer-CA will create a new signed pair of crt and key 
    
 **https://docs.openshift.com/container-platform/4.12/security/certificates/service-serving-certificate.html#add-service-certificate_service-serving-certificate**
 
-3. Confirm the creation of one secret and one configmap.
+2. Confirm the creation of one secret and one configmap.
+   - what the configmap is used for ?
 
-###S tep 5: Adjust the server and client deployments to consume the certificates to allow https communication
+### Step 5: Adjust the server and client deployments to consume the certificates to allow https communication
 
 1. Modify the http server to consume the secret
 The http server expect to get the crt and key as follow:
