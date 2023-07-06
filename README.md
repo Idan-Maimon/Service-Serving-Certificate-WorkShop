@@ -124,7 +124,8 @@ oc apply -f curl-client.yaml
 
 ### Step 5: Adjust the server and client deployments to consume the certificates to allow https communication
 
-1. Modify the http server to consume the secret
+1. Modify the http server to consume the secret.
+
 The http server expect to get the crt and key as follow:
    - tls.crt: should be mounted at /app/fullchain.pem
    - tls.key: should be mounted at /app/privkey.pem
