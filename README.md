@@ -9,11 +9,11 @@ This workshop demonstrates how to annotate a service in an OpenShift cluster wit
 
 ## During this workshop, you will perform the following steps:
 
-Step 1: Create new project.
-Step 2: Deploy http/https simple server that support both http and https connections.
-Step 3: Deploy a Curl client pod to test the secure communication with the HTTP server.
-Step 4: Annotate the https server service to sign it using the Service Serving Certificate.
-Step 5: Adjust the server and client deployments to consume the certificates to allow https communication.
+   Step 1: Create new project.
+   Step 2: Deploy http/https simple server that support both http and https connections.
+   Step 3: Deploy a Curl client pod to test the secure communication with the HTTP server.
+   Step 4: Annotate the https server service to sign it using the Service Serving Certificate.
+   Step 5: Adjust the server and client deployments to consume the certificates to allow https communication.
 
 ### Step 1: Create a New Project
 1. Open a terminal or command prompt.
