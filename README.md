@@ -1,4 +1,4 @@
-# Demo Workshop: Annotating Service with Serving Certificate Secret
+#  Workshop: Annotating Service with Service Serving Certificate
 
 
 This workshop demonstrates how to annotate a service in an OpenShift cluster with a Service Serving Certificate to enable secure communication over HTTPS between pods in Openshift
@@ -18,6 +18,7 @@ This workshop demonstrates how to annotate a service in an OpenShift cluster wit
    Step 4: Annotate the https server service to sign it using the Service Serving Certificate.
    
    Step 5: Adjust the server and client deployments to consume the certificates to allow https communication.
+
 
 ### Step 1: Create a New Project
 1. Open a terminal or command prompt.
