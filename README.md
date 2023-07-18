@@ -27,89 +27,22 @@ This workshop demonstrates how to annotate a service in an OpenShift cluster wit
    oc new-project https-server-project
 ```
 
+
 ### Step 2: Deploy HTTP/HTTPS Simple Server
-1. Create a file named http-server.yaml and copy the following content into it:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-http-listener
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: my-http-listener
-  template:
-    metadata:
-      labels:
-        app: my-http-listener
-    spec:
-      containers:
-      - name: my-http-listener
-        image: mendhak/http-https-echo:26
-        env:
-        - name: HTTP_PORT
-          value: "8080"
-        - name: HTTPS_PORT
-          value: "8443"
-      ports:
-      - containerPort: 8080
-        name: http
-      - containerPort: 8443
-        name: https
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-http-listener-service
-spec:
-  selector:
-    app: my-http-listener
-  ports:
-  - name: http
-    protocol: TCP
-    port: 8080
-    targetPort: 8080
-  - name: https
-    protocol: TCP
-    port: 8443
-    targetPort: 8443   
-```
-
-2. Run the following command to deploy the HTTP/HTTPS simple server:
+1. Run the following command to deploy the HTTP/HTTPS simple server:
 
 ```bash
 oc apply -f http-server.yaml
 ```
+
+
 ### Step 3: Deploy the Curl Client
-1. Create a file named curl-client.yaml and copy the following content into it:
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: curl-pod
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: curl-pod
-  template:
-    metadata:
-      labels:
-        app: curl-pod
-    spec:
-      containers:
-      - name: curl-container
-        image: curlimages/curl
-        command: ["sleep", "infinity"]
-```
-2. Run the following command to deploy the curl client:
+1. Run the following command to deploy the curl client:
 
 ```bash
 oc apply -f curl-client.yaml
 ```
-3. Run curl command from client to server
+2. Run curl command from client to server
    - Did the curl worked using the https endpoint ?
   
 
@@ -119,8 +52,8 @@ oc apply -f curl-client.yaml
    
 **https://docs.openshift.com/container-platform/4.12/security/certificates/service-serving-certificate.html#add-service-certificate_service-serving-certificate**
 
-2. Confirm the creation of one secret and one configmap.
-   - what the configmap is used for ?
+2. Confirm the creation of the secret.
+   - what else is needed ?
 
 ### Step 5: Adjust the server and client deployments to consume the certificates to allow https communication
 
